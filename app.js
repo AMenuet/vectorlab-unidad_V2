@@ -546,7 +546,24 @@ function pointerPosition(ev, canvas) {
 
 function nearPoint(canvas, pointer, p) {
   const q = toCanvas(canvas, p);
-  return Math.hypot(pointer.x - q.x, pointer.y - q.y) < 38;
+  return Math.hypot(pointer.x - q.x, pointer.y - q.y) < 55;
+}
+
+function nearestEndpoint(canvas, pointer, candidates) {
+  let best = null;
+  let bestDistance = Infinity;
+
+  candidates.forEach(item => {
+    const q = toCanvas(canvas, item.point);
+    const d = Math.hypot(pointer.x - q.x, pointer.y - q.y);
+    if (d < bestDistance) {
+      bestDistance = d;
+      best = item.name;
+    }
+  });
+
+  // radio amplio para que sea fácil tomar el vector, sin tener que hacer clic exacto
+  return bestDistance < 95 ? best : null;
 }
 
 function startCanvasDrag(canvas, ev) {
@@ -569,7 +586,8 @@ function setupDragging() {
   graphVector.addEventListener("pointerdown", (ev) => {
     ev.preventDefault();
     const p = pointerPosition(ev, graphVector);
-    if (nearPoint(graphVector, p, state.g1.u)) { state.g1.drag = "u"; startCanvasDrag(graphVector, ev); }
+    const selected = nearestEndpoint(graphVector, p, [{ name: "u", point: state.g1.u }]);
+    if (selected) { state.g1.drag = selected; startCanvasDrag(graphVector, ev); }
   });
   graphVector.addEventListener("pointermove", (ev) => {
     if (!state.g1.drag) return;
@@ -583,8 +601,11 @@ function setupDragging() {
   graphSum.addEventListener("pointerdown", (ev) => {
     ev.preventDefault();
     const p = pointerPosition(ev, graphSum);
-    if (nearPoint(graphSum, p, state.g2.u)) { state.g2.drag = "u"; startCanvasDrag(graphSum, ev); }
-    else if (nearPoint(graphSum, p, state.g2.v)) { state.g2.drag = "v"; startCanvasDrag(graphSum, ev); }
+    const selected = nearestEndpoint(graphSum, p, [
+      { name: "u", point: state.g2.u },
+      { name: "v", point: state.g2.v }
+    ]);
+    if (selected) { state.g2.drag = selected; startCanvasDrag(graphSum, ev); }
   });
   graphSum.addEventListener("pointermove", (ev) => {
     if (!state.g2.drag) return;
@@ -600,7 +621,8 @@ function setupDragging() {
   graphScalar.addEventListener("pointerdown", (ev) => {
     ev.preventDefault();
     const p = pointerPosition(ev, graphScalar);
-    if (nearPoint(graphScalar, p, state.g3.u)) { state.g3.drag = "u"; startCanvasDrag(graphScalar, ev); }
+    const selected = nearestEndpoint(graphScalar, p, [{ name: "u", point: state.g3.u }]);
+    if (selected) { state.g3.drag = selected; startCanvasDrag(graphScalar, ev); }
   });
   graphScalar.addEventListener("pointermove", (ev) => {
     if (!state.g3.drag) return;
@@ -640,8 +662,11 @@ function setupDragging() {
     graphDot.addEventListener("pointerdown", (ev) => {
       ev.preventDefault();
       const p = pointerPosition(ev, graphDot);
-      if (nearPoint(graphDot, p, state.g4.u)) { state.g4.drag = "u"; startCanvasDrag(graphDot, ev); }
-      else if (nearPoint(graphDot, p, state.g4.v)) { state.g4.drag = "v"; startCanvasDrag(graphDot, ev); }
+      const selected = nearestEndpoint(graphDot, p, [
+        { name: "u", point: state.g4.u },
+        { name: "v", point: state.g4.v }
+      ]);
+      if (selected) { state.g4.drag = selected; startCanvasDrag(graphDot, ev); }
     });
     graphDot.addEventListener("pointermove", (ev) => {
       if (!state.g4.drag) return;
@@ -659,8 +684,11 @@ function setupDragging() {
     graphProjection.addEventListener("pointerdown", (ev) => {
       ev.preventDefault();
       const p = pointerPosition(ev, graphProjection);
-      if (nearPoint(graphProjection, p, state.g5.u)) { state.g5.drag = "u"; startCanvasDrag(graphProjection, ev); }
-      else if (nearPoint(graphProjection, p, state.g5.v)) { state.g5.drag = "v"; startCanvasDrag(graphProjection, ev); }
+      const selected = nearestEndpoint(graphProjection, p, [
+        { name: "u", point: state.g5.u },
+        { name: "v", point: state.g5.v }
+      ]);
+      if (selected) { state.g5.drag = selected; startCanvasDrag(graphProjection, ev); }
     });
     graphProjection.addEventListener("pointermove", (ev) => {
       if (!state.g5.drag) return;
