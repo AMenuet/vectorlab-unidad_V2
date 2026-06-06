@@ -51,16 +51,21 @@ Se agregó cache busting en los enlaces a `styles.css` y `app.js` para evitar qu
 Se corrigió la escala de las gráficas para que las unidades del eje x y del eje y tengan la misma longitud visual. Las grillas ahora quedan cuadradas, evitando deformaciones en ángulos, módulos y proyecciones.
 
 
-## Nueva Base V4.2
+## Nueva Base V5
 
 Se corrigió el arrastre de vectores luego del cambio a grillas cuadradas. Se amplió la zona sensible de los puntos, se agregó `touch-action: none` y captura de puntero para mejorar el movimiento con mouse o pantalla táctil.
 
 
-## Nueva Base V4.2
+## Nueva Base V5
 
 Se agregó la Sección 3 completa: teoría de producto vectorial, gráfica conceptual 3D con cambio de orden, gráfica interactiva de área del paralelogramo, 10 actividades y 10 preguntas de autoevaluación.
 
 
-## Nueva Base V4.2
+## Nueva Base V5
 
 Corrección puntual: se mejoró el arrastre de los vectores en las gráficas conceptuales de las Secciones 1 y 2. Ahora no hace falta hacer clic exactamente en la punta; se selecciona el extremo más cercano dentro de una zona amplia.
+
+
+## Nueva Base V5
+
+Se agregó la Sección 4 completa: teoría de producto mixto, gráfica del volumen del paralelepípedo, gráfica de coplanaridad con altura variable, 10 actividades y 10 preguntas de autoevaluación.

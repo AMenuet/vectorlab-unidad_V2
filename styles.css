@@ -541,3 +541,16 @@ canvas.dragging {
   background: var(--blue2);
   color: white;
 }
+
+
+/* V5: producto mixto */
+#mixedSvg {
+  touch-action: none;
+  user-select: none;
+}
+
+#mixedBaseGroup,
+#mixedHeightGroup,
+#mixedVolumeGroup {
+  transition: opacity .2s ease;
+}

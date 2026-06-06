@@ -5,7 +5,9 @@ const state = {
   g4: { u: { x: 4, y: 1 }, v: { x: 2, y: 3 }, drag: null },
   g5: { u: { x: 4, y: 1 }, v: { x: 2, y: 3 }, drag: null },
   g7: { u: { x: 4, y: 1 }, v: { x: 2, y: 3 }, drag: null },
-  cross: { order: "uxv", plane: true }
+  cross: { order: "uxv", plane: true },
+  mixed: { base: true, height: true, volume: true },
+  g9: { h: 2 }
 };
 
 const $ = (id) => document.getElementById(id);
@@ -527,6 +529,112 @@ function drawAreaGraph() {
   $("g7area").textContent = fmt(area);
 }
 
+function setupMixedSvg() {
+  const btnBase = $("btnMixedBase");
+  const btnHeight = $("btnMixedHeight");
+  const btnVolume = $("btnMixedVolume");
+  if (!btnBase || !btnHeight || !btnVolume) return;
+
+  const update = () => {
+    const base = $("mixedBaseGroup");
+    const height = $("mixedHeightGroup");
+    const volume = $("mixedVolumeGroup");
+
+    base.style.opacity = state.mixed.base ? "1" : "0.12";
+    height.style.opacity = state.mixed.height ? "1" : "0.08";
+    volume.style.opacity = state.mixed.volume ? "1" : "0.10";
+
+    $("mixedBaseState").textContent = state.mixed.base ? "visible" : "oculta";
+    $("mixedHeightState").textContent = state.mixed.height ? "visible" : "oculta";
+    $("mixedVolumeState").textContent = state.mixed.volume ? "visible" : "oculto";
+
+    btnBase.classList.toggle("active", state.mixed.base);
+    btnHeight.classList.toggle("active", state.mixed.height);
+    btnVolume.classList.toggle("active", state.mixed.volume);
+  };
+
+  btnBase.addEventListener("click", () => {
+    state.mixed.base = !state.mixed.base;
+    update();
+  });
+
+  btnHeight.addEventListener("click", () => {
+    state.mixed.height = !state.mixed.height;
+    update();
+  });
+
+  btnVolume.addEventListener("click", () => {
+    state.mixed.volume = !state.mixed.volume;
+    update();
+  });
+
+  update();
+}
+
+function drawCoplanarityGraph() {
+  const canvas = $("graphCoplanarity");
+  if (!canvas) return;
+  const ctx = canvas.getContext("2d");
+  const h = state.g9.h;
+
+  drawGrid(ctx, canvas);
+
+  // Base simplificada generada por 𝐯 y 𝐰
+  const O = { x: -3, y: -2 };
+  const v = { x: 3, y: -2 };
+  const w = { x: -1, y: 2 };
+  const base4 = add(v, { x: w.x - O.x, y: w.y - O.y });
+
+  const pO = toCanvas(canvas, O);
+  const pV = toCanvas(canvas, v);
+  const pW = toCanvas(canvas, w);
+  const pB = toCanvas(canvas, base4);
+
+  ctx.fillStyle = "rgba(11, 92, 173, 0.12)";
+  ctx.strokeStyle = "#0b5cad";
+  ctx.lineWidth = 2;
+  ctx.beginPath();
+  ctx.moveTo(pO.x, pO.y);
+  ctx.lineTo(pV.x, pV.y);
+  ctx.lineTo(pB.x, pB.y);
+  ctx.lineTo(pW.x, pW.y);
+  ctx.closePath();
+  ctx.fill();
+  ctx.stroke();
+
+  drawArrow(ctx, canvas, O, v, "#111", 3, "𝐯");
+  drawArrow(ctx, canvas, O, w, "#334155", 3, "𝐰");
+
+  // Tercer vector 𝐮 con altura orientada h.
+  // Lo representamos como una flecha vertical desde la base.
+  const uEnd = { x: -3, y: -2 + h };
+  drawArrow(ctx, canvas, O, uEnd, h >= 0 ? "#0f766e" : "#b91c1c", 4, "𝐮");
+
+  ctx.strokeStyle = "#b45309";
+  ctx.setLineDash([7, 5]);
+  ctx.lineWidth = 2;
+  const qO = toCanvas(canvas, O);
+  const qU = toCanvas(canvas, uEnd);
+  ctx.beginPath();
+  ctx.moveTo(qU.x, qU.y);
+  ctx.lineTo(qO.x, qO.y);
+  ctx.stroke();
+  ctx.setLineDash([]);
+
+  const mixed = 6 * h;
+  $("coplanarH").textContent = fmt(h);
+  $("coplanarValue").textContent = fmt(mixed);
+
+  const label = $("coplanarState");
+  if (Math.abs(h) < 0.001) {
+    label.textContent = "Coplanares";
+    label.style.color = "var(--green)";
+  } else {
+    label.textContent = "No coplanares";
+    label.style.color = "var(--red)";
+  }
+}
+
 function redrawAll() {
   drawVectorGraph();
   drawSumGraph();
@@ -534,6 +642,7 @@ function redrawAll() {
   drawDotGraph();
   drawProjectionGraph();
   drawAreaGraph();
+  drawCoplanarityGraph();
 }
 
 function pointerPosition(ev, canvas) {
@@ -819,6 +928,16 @@ function init() {
   setupActivities();
   setupQuiz();
   setupCrossSvg();
+  setupMixedSvg();
+
+  const coplanarSlider = $("coplanarSlider");
+  if (coplanarSlider) {
+    coplanarSlider.addEventListener("input", (ev) => {
+      state.g9.h = Number(ev.target.value);
+      drawCoplanarityGraph();
+    });
+  }
+
   redrawAll();
 }
 
