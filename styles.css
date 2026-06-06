@@ -1,0 +1,543 @@
+:root {
+  --blue: #083b7a;
+  --blue2: #0b5cad;
+  --ink: #172033;
+  --muted: #64748b;
+  --line: #d7e1ef;
+  --light: #f4f8ff;
+  --green: #0f766e;
+  --red: #b91c1c;
+  --orange: #b45309;
+  --shadow: 0 12px 30px rgba(8, 59, 122, .12);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: "Segoe UI", Arial, sans-serif;
+  color: var(--ink);
+  background: linear-gradient(180deg, #f7fbff, #eef5ff);
+}
+
+.hero {
+  display: flex;
+  justify-content: space-between;
+  gap: 2rem;
+  align-items: center;
+  padding: 1.4rem clamp(1rem, 4vw, 3rem);
+  background: linear-gradient(135deg, var(--blue), #0c4e9a);
+  color: white;
+}
+
+.eyebrow {
+  margin: 0 0 .35rem;
+  opacity: .82;
+  letter-spacing: .06em;
+  text-transform: uppercase;
+  font-size: .78rem;
+}
+
+h1 {
+  margin: 0;
+  font-size: clamp(2.4rem, 5vw, 4.4rem);
+  line-height: .95;
+}
+
+.subtitle {
+  margin: .4rem 0 0;
+  opacity: .9;
+}
+
+.status-card {
+  min-width: 170px;
+  background: rgba(255,255,255,.14);
+  border: 1px solid rgba(255,255,255,.28);
+  border-radius: 18px;
+  padding: .9rem 1rem;
+}
+
+.status-card span,
+.status-card small {
+  display: block;
+  opacity: .82;
+}
+
+.status-card strong {
+  display: block;
+  font-size: 1.25rem;
+  margin: .2rem 0;
+}
+
+main {
+  width: min(1280px, calc(100% - 2rem));
+  margin: 1.4rem auto;
+}
+
+.intro,
+.section-tabs,
+.section {
+  background: rgba(255,255,255,.94);
+  border: 1px solid var(--line);
+  border-radius: 24px;
+  box-shadow: var(--shadow);
+}
+
+.intro {
+  display: grid;
+  grid-template-columns: 1.4fr 1fr;
+  gap: 1rem;
+  padding: 1.3rem;
+  margin-bottom: 1rem;
+}
+
+.intro h2 {
+  margin: 0 0 .45rem;
+  color: var(--blue);
+}
+
+.intro p {
+  margin: 0;
+  color: var(--muted);
+}
+
+.notation-box {
+  background: #eff6ff;
+  border: 1px solid #bfdbfe;
+  color: var(--blue);
+  border-radius: 18px;
+  padding: .9rem 1rem;
+  line-height: 1.55;
+}
+
+.vec,
+.math {
+  font-family: "Cambria Math", Georgia, serif;
+}
+
+.vec {
+  font-weight: 900;
+  font-style: italic;
+  color: #062f63;
+}
+
+.comp {
+  font-family: "Cambria Math", Georgia, serif;
+  color: var(--ink);
+}
+
+.section-tabs {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: .5rem;
+  padding: .6rem;
+  margin-bottom: 1rem;
+}
+
+.section-tab {
+  border: 0;
+  background: transparent;
+  color: var(--blue);
+  font-weight: 800;
+  padding: .85rem 1rem;
+  border-radius: 14px;
+  cursor: pointer;
+}
+
+.section-tab.active {
+  background: var(--blue);
+  color: white;
+}
+
+.section {
+  display: none;
+  padding: 1.1rem;
+  margin-bottom: 1rem;
+}
+
+.section.active {
+  display: block;
+}
+
+.section-header {
+  display: flex;
+  justify-content: space-between;
+  gap: 1rem;
+  align-items: flex-start;
+  padding: .2rem .3rem 1rem;
+}
+
+.section-header h2 {
+  margin: 0 0 .35rem;
+  color: var(--blue);
+}
+
+.section-header p {
+  margin: 0;
+  color: var(--muted);
+}
+
+.badge {
+  background: #dbeafe;
+  color: var(--blue);
+  padding: .55rem .8rem;
+  border-radius: 999px;
+  font-weight: 800;
+  white-space: nowrap;
+}
+
+.badge.pending {
+  background: #fff7ed;
+  color: #9a3412;
+}
+
+.inner-tabs {
+  display: flex;
+  gap: .5rem;
+  border-bottom: 1px solid var(--line);
+  padding-bottom: .75rem;
+  margin-bottom: 1rem;
+}
+
+.inner-tab {
+  border: 0;
+  background: #e8eef8;
+  color: var(--blue);
+  font-weight: 800;
+  padding: .7rem 1rem;
+  border-radius: 12px;
+  cursor: pointer;
+}
+
+.inner-tab.active {
+  background: var(--blue2);
+  color: white;
+}
+
+.panel {
+  display: none;
+}
+
+.panel.active {
+  display: block;
+}
+
+.theory-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1rem;
+}
+
+.theory-card,
+.graph-card,
+.activity-card,
+.quiz-card,
+.placeholder,
+.section-note {
+  background: white;
+  border: 1px solid var(--line);
+  border-radius: 20px;
+  padding: 1rem;
+}
+
+.theory-card h3,
+.graph-card h4,
+.activity-card h4,
+.quiz-card h4 {
+  color: var(--blue);
+  margin-top: 0;
+}
+
+.theory-card p,
+.placeholder p,
+.section-note p {
+  line-height: 1.55;
+  color: var(--muted);
+}
+
+.formula {
+  font-family: "Cambria Math", Georgia, serif;
+  font-size: 1.17rem;
+  background: var(--light);
+  border-left: 5px solid var(--blue2);
+  border-radius: 12px;
+  padding: .75rem;
+  margin: .6rem 0;
+}
+
+.graph-stack {
+  margin-top: 1.2rem;
+  display: grid;
+  gap: 1rem;
+}
+
+.graph-stack > h3 {
+  color: var(--blue);
+  margin-bottom: 0;
+}
+
+.muted {
+  color: var(--muted);
+  margin-top: 0;
+}
+
+.graph-header {
+  display: flex;
+  justify-content: space-between;
+  gap: 1rem;
+  margin-bottom: .75rem;
+}
+
+.graph-header h4 {
+  margin-bottom: .25rem;
+}
+
+.graph-header p {
+  margin: 0;
+  color: var(--muted);
+}
+
+.live-values {
+  display: grid;
+  gap: .35rem;
+  min-width: 230px;
+}
+
+.live-values span {
+  background: var(--light);
+  border: 1px solid var(--line);
+  border-radius: 12px;
+  padding: .45rem .65rem;
+  font-family: "Cambria Math", Georgia, serif;
+}
+
+canvas {
+  display: block;
+  width: 100%;
+  background: #fbfdff;
+  border: 1px solid #e4edf8;
+  border-radius: 16px;
+}
+
+.slider-label {
+  display: grid;
+  gap: .4rem;
+  margin-bottom: .75rem;
+  font-weight: 800;
+  color: var(--blue);
+}
+
+input[type="range"] {
+  width: 100%;
+}
+
+.activity-list {
+  display: grid;
+  gap: 1rem;
+}
+
+.activity-card input {
+  width: 100%;
+  min-height: 44px;
+  border: 1px solid var(--line);
+  border-radius: 12px;
+  padding: .65rem .8rem;
+  margin: .5rem 0;
+}
+
+.buttons {
+  display: flex;
+  flex-wrap: wrap;
+  gap: .5rem;
+}
+
+button {
+  font-family: inherit;
+}
+
+.buttons button,
+.quiz-card button {
+  border: 0;
+  border-radius: 12px;
+  padding: .65rem .9rem;
+  font-weight: 800;
+  cursor: pointer;
+}
+
+.check-btn {
+  background: var(--blue2);
+  color: white;
+}
+
+.hint-btn {
+  background: #e8eef8;
+  color: var(--blue);
+}
+
+.solution-btn {
+  background: #fff7ed;
+  color: var(--orange);
+  border: 1px solid #fed7aa !important;
+}
+
+.feedback,
+.quiz-feedback {
+  font-weight: 800;
+}
+
+.solution {
+  display: none;
+  margin-top: .75rem;
+  padding: .8rem;
+  border-radius: 14px;
+  border: 1px solid #bfdbfe;
+  background: #eff6ff;
+  color: var(--blue);
+}
+
+.solution.visible {
+  display: block;
+}
+
+.quiz-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: .9rem;
+}
+
+.quiz-card {
+  display: grid;
+  gap: .5rem;
+}
+
+.quiz-card button {
+  background: var(--light);
+  color: var(--ink);
+  text-align: left;
+  border: 1px solid var(--line);
+}
+
+.quiz-card button.correct {
+  background: #dcfce7;
+  border-color: #22c55e;
+}
+
+.quiz-card button.wrong {
+  background: #fee2e2;
+  border-color: #ef4444;
+}
+
+.placeholder {
+  min-height: 260px;
+}
+
+.placeholder h3 {
+  color: var(--blue);
+}
+
+footer {
+  width: min(1280px, calc(100% - 2rem));
+  margin: 1.5rem auto 2rem;
+  display: flex;
+  justify-content: space-between;
+  color: var(--muted);
+  font-size: .88rem;
+}
+
+@media (max-width: 960px) {
+  .hero,
+  .intro,
+  .section-header,
+  .graph-header,
+  footer {
+    grid-template-columns: 1fr;
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .section-tabs,
+  .theory-grid,
+  .quiz-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .live-values {
+    width: 100%;
+  }
+}
+
+
+/* V3.2: grillas con escala 1:1 */
+canvas {
+  aspect-ratio: 1 / 1;
+  max-height: 760px;
+  object-fit: contain;
+}
+
+
+/* V3.3: mejora de arrastre de vectores */
+canvas {
+  touch-action: none;
+  cursor: crosshair;
+  user-select: none;
+}
+
+canvas.dragging {
+  cursor: grabbing;
+}
+
+
+/* V4: producto vectorial */
+.svg-visual {
+  display: block;
+  width: 100%;
+  min-height: 360px;
+  background: #fbfdff;
+  border: 1px solid #e4edf8;
+  border-radius: 16px;
+}
+
+.svg-label {
+  font-family: "Cambria Math", Georgia, serif;
+  font-size: 26px;
+  font-weight: 900;
+  fill: #111;
+}
+
+.svg-label.blue {
+  fill: #0b5cad;
+}
+
+.svg-label.green {
+  fill: #0f766e;
+}
+
+.svg-small {
+  font-family: "Cambria Math", Georgia, serif;
+  font-size: 21px;
+  fill: #111;
+}
+
+.cross-controls {
+  display: flex;
+  flex-wrap: wrap;
+  gap: .5rem;
+  margin-bottom: .75rem;
+}
+
+.mini-btn {
+  border: 0;
+  border-radius: 12px;
+  padding: .65rem .9rem;
+  font-weight: 800;
+  cursor: pointer;
+  background: #e8eef8;
+  color: var(--blue);
+}
+
+.mini-btn.active {
+  background: var(--blue2);
+  color: white;
+}
