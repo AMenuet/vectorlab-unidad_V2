@@ -74,3 +74,14 @@ Se agregó la Sección 4 completa: teoría de producto mixto, gráfica del volum
 ## Nueva Base V5.2
 
 Se eliminó la gráfica vieja de coplanaridad de la Sección 4 para evitar redundancia/confusión. La coplanaridad queda integrada en la gráfica interactiva principal: al llevar la proyección de 𝐰 sobre z a h = 0, el volumen se anula.
+
+
+## Nueva Base V5.3
+
+Se agregó autoría visible en la app, metadato de autor y aviso de copyright educativo.
+
+**Autor:** Ing. Mg. Agustín Menuet  
+**Institución:** FICA · Universidad Nacional de San Luis  
+**Año:** 2026  
+
+**Aviso:** © 2026 Agustín Menuet. Material educativo. Se permite su uso con fines académicos citando la fuente.

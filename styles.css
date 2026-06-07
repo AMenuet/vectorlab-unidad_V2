@@ -574,3 +574,64 @@ canvas.dragging {
     min-height: 1320px;
   }
 }
+
+
+/* V5.3: autoría y copyright */
+.authorship-card {
+  background: white;
+  border: 1px solid var(--line);
+  border-left: 6px solid var(--blue);
+  border-radius: 22px;
+  padding: 1rem 1.2rem;
+  margin: 1rem auto;
+  max-width: 1200px;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 340px;
+  gap: 1rem;
+  align-items: center;
+  box-shadow: 0 8px 22px rgba(8, 59, 122, .06);
+}
+
+.authorship-card h2 {
+  margin: .25rem 0 .45rem;
+  color: var(--blue);
+}
+
+.authorship-card p {
+  margin: 0;
+  color: var(--muted);
+  line-height: 1.5;
+}
+
+.authorship-kicker {
+  color: var(--blue2);
+  font-size: .85rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: .05em;
+}
+
+.copyright-box {
+  background: #eef5ff;
+  border-radius: 16px;
+  padding: .9rem;
+  display: grid;
+  gap: .25rem;
+  color: var(--blue);
+}
+
+.copyright-box span,
+.copyright-box small {
+  color: var(--muted);
+}
+
+footer {
+  gap: .5rem;
+  flex-wrap: wrap;
+}
+
+@media (max-width: 800px) {
+  .authorship-card {
+    grid-template-columns: 1fr;
+  }
+}
