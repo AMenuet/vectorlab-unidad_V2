@@ -703,3 +703,38 @@ footer {
     height: 650px;
   }
 }
+
+
+/* V5.4.1: corrección de navegación para 5 secciones */
+.section-tabs {
+  display: grid;
+  grid-template-columns: repeat(5, minmax(150px, 1fr));
+  gap: .5rem;
+  overflow-x: auto;
+  scrollbar-width: thin;
+}
+
+.section-tab {
+  min-width: 150px;
+  white-space: nowrap;
+}
+
+@media (max-width: 900px) {
+  .section-tabs {
+    grid-template-columns: repeat(5, minmax(180px, 1fr));
+  }
+}
+
+
+/* V5.4.1b: override fuerte para mostrar la quinta sección */
+nav.section-tabs {
+  display: grid !important;
+  grid-template-columns: repeat(5, minmax(155px, 1fr)) !important;
+  gap: .5rem !important;
+  overflow-x: auto !important;
+}
+
+nav.section-tabs .section-tab {
+  min-width: 155px !important;
+  white-space: nowrap !important;
+}

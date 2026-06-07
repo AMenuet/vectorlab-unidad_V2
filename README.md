@@ -93,3 +93,8 @@ Se agregó la Sección 5: Geometría Analítica, con acceso al PDF final integra
 
 Archivo incluido en la app:
 - geometria_analitica_unidad_2_final.pdf
+
+
+## Nueva Base V5.4.1
+
+Corrección de navegación: la barra principal ahora muestra correctamente las 5 secciones, incluida **Geometría Analítica**.
