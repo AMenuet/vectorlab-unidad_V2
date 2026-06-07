@@ -554,3 +554,23 @@ canvas.dragging {
 #mixedVolumeGroup {
   transition: opacity .2s ease;
 }
+
+
+/* V5.1: producto mixto embebido */
+.embed-frame {
+  display:block;
+  width:100%;
+  border:1px solid #e4edf8;
+  border-radius:16px;
+  background:#fbfdff;
+}
+
+.mixed-embed {
+  min-height: 980px;
+}
+
+@media (max-width: 920px) {
+  .mixed-embed {
+    min-height: 1320px;
+  }
+}

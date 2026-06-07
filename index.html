@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>VectorLab · Unidad 1: Vectores</title>
   <meta name="description" content="Manual interactivo de vectores para Álgebra y Geometría Analítica." />
-  <link rel="stylesheet" href="styles.css?v=5" />
+  <link rel="stylesheet" href="styles.css?v=5.1" />
 </head>
 <body>
   <header class="hero">
@@ -16,8 +16,8 @@
     </div>
     <div class="status-card">
       <span>Versión</span>
-      <strong>Nueva Base V1</strong>
-      <small>Sección 1 visual</small>
+      <strong>Nueva Base V5.1</strong>
+      <small>Producto mixto actualizado</small>
     </div>
   </header>
 
@@ -1003,63 +1003,15 @@
             <div class="graph-header">
               <div>
                 <h4>Gráfica 8 · Volumen del paralelepípedo</h4>
-                <p>Visualiza \(V=|𝐮·(𝐯×𝐰)|\) como base por altura.</p>
+                <p>Visualiza la base en el plano <span class="math">xy</span>, el vector <span class="vec">𝐰</span> móvil y su proyección sobre el eje <span class="math">z</span>, que determina la altura <span class="math">h</span>.</p>
               </div>
               <div class="live-values">
-                <span>Base: <b id="mixedBaseState">visible</b></span>
-                <span>Altura: <b id="mixedHeightState">visible</b></span>
-                <span>Volumen: <b id="mixedVolumeState">visible</b></span>
+                <span>Base en <b>xy</b></span>
+                <span><b>𝐰</b> móvil</span>
+                <span><b>h = proy<sub>z</sub>(𝐰)</b></span>
               </div>
             </div>
-
-            <div class="cross-controls">
-              <button id="btnMixedBase" class="mini-btn active">Mostrar/ocultar base</button>
-              <button id="btnMixedHeight" class="mini-btn active">Mostrar/ocultar altura</button>
-              <button id="btnMixedVolume" class="mini-btn active">Mostrar/ocultar volumen</button>
-            </div>
-
-            <svg id="mixedSvg" viewBox="0 0 760 430" class="svg-visual" role="img" aria-label="Producto mixto">
-              <defs>
-                <marker id="arrMixedBlack" markerWidth="10" markerHeight="10" refX="7" refY="3" orient="auto">
-                  <path d="M0,0 L0,6 L8,3 z" fill="#111"></path>
-                </marker>
-                <marker id="arrMixedGray" markerWidth="10" markerHeight="10" refX="7" refY="3" orient="auto">
-                  <path d="M0,0 L0,6 L8,3 z" fill="#334155"></path>
-                </marker>
-                <marker id="arrMixedGreen" markerWidth="10" markerHeight="10" refX="7" refY="3" orient="auto">
-                  <path d="M0,0 L0,6 L8,3 z" fill="#0f766e"></path>
-                </marker>
-              </defs>
-
-              <g id="mixedVolumeGroup">
-                <polygon points="140,310 430,310 540,210 250,210" fill="#eef2ff" stroke="#64748b" stroke-width="2"/>
-                <polygon points="185,160 475,160 585,60 295,60" fill="#e2e8f0" stroke="#64748b" stroke-width="2"/>
-                <polygon points="140,310 185,160 475,160 430,310" fill="#f8fafc" stroke="#94a3b8" stroke-width="2"/>
-                <polygon points="250,210 295,60 585,60 540,210" fill="#dbeafe" stroke="#94a3b8" stroke-width="2"/>
-                <polygon points="430,310 475,160 585,60 540,210" fill="#dbeafe" stroke="#94a3b8" stroke-width="2"/>
-              </g>
-
-              <g id="mixedBaseGroup">
-                <polygon points="140,310 430,310 540,210 250,210" fill="rgba(11,92,173,.14)" stroke="#0b5cad" stroke-width="3"/>
-              </g>
-
-              <line x1="140" y1="310" x2="430" y2="310" stroke="#111" stroke-width="4" marker-end="url(#arrMixedBlack)"/>
-              <line x1="140" y1="310" x2="250" y2="210" stroke="#334155" stroke-width="4" marker-end="url(#arrMixedGray)"/>
-              <line x1="140" y1="310" x2="185" y2="160" stroke="#0f766e" stroke-width="4" marker-end="url(#arrMixedGreen)"/>
-
-              <g id="mixedHeightGroup">
-                <line x1="185" y1="160" x2="215" y2="250" stroke="#b45309" stroke-dasharray="8 7" stroke-width="3"/>
-                <line x1="215" y1="250" x2="238" y2="238" stroke="#b45309" stroke-width="2"/>
-                <line x1="238" y1="238" x2="228" y2="217" stroke="#b45309" stroke-width="2"/>
-                <text x="224" y="265" class="svg-small">h</text>
-              </g>
-
-              <text x="315" y="340" class="svg-label">𝐯</text>
-              <text x="195" y="238" class="svg-label">𝐰</text>
-              <text x="150" y="215" class="svg-label green">𝐮</text>
-              <text x="270" y="42" class="svg-label blue">V = |𝐮 · (𝐯 × 𝐰)|</text>
-              <text x="310" y="92" class="svg-small">base = ‖𝐯 × 𝐰‖</text>
-            </svg>
+            <iframe class="embed-frame mixed-embed" src="mixed_graph_embed.html" title="Producto mixto interactivo"></iframe>
           </div>
 
           <div class="graph-card">
@@ -1245,10 +1197,10 @@
   </main>
 
   <footer>
-    <span>VectorLab · Nueva Base V1</span>
+    <span>VectorLab · Nueva Base V5.1</span>
     <span>Diseño estable · Sin conversión automática de notación</span>
   </footer>
 
-  <script src="app.js?v=5"></script>
+  <script src="app.js?v=5.1"></script>
 </body>
 </html>
