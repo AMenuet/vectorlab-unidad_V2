@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>VectorLab · Unidad 1: Vectores</title>
   <meta name="description" content="Manual interactivo de vectores para Álgebra y Geometría Analítica." />
-  <link rel="stylesheet" href="styles.css?v=5.1" />
+  <link rel="stylesheet" href="styles.css?v=5.2" />
 </head>
 <body>
   <header class="hero">
@@ -16,8 +16,8 @@
     </div>
     <div class="status-card">
       <span>Versión</span>
-      <strong>Nueva Base V5.1</strong>
-      <small>Producto mixto actualizado</small>
+      <strong>Nueva Base V5.2</strong>
+      <small>Producto mixto limpio</small>
     </div>
   </header>
 
@@ -1013,26 +1013,15 @@
             </div>
             <iframe class="embed-frame mixed-embed" src="mixed_graph_embed.html" title="Producto mixto interactivo"></iframe>
           </div>
-
-          <div class="graph-card">
-            <div class="graph-header">
-              <div>
-                <h4>Gráfica 9 · Coplanaridad</h4>
-                <p>Mové la altura orientada. Si h=0, los vectores son coplanares y el producto mixto vale cero.</p>
-              </div>
-              <div class="live-values">
-                <span>h = <b id="coplanarH">2.00</b></span>
-                <span>Producto mixto = <b id="coplanarValue">12.00</b></span>
-                <span id="coplanarState">No coplanares</span>
-              </div>
-            </div>
-            <label class="slider-label">
-              Altura orientada h
-              <input id="coplanarSlider" type="range" min="-3" max="3" step="0.25" value="2">
-            </label>
-            <canvas id="graphCoplanarity" width="720" height="720"></canvas>
+          <div class="section-note">
+            <h3>Coplanaridad dentro de la gráfica</h3>
+            <p>
+              Para analizar coplanaridad, mové el extremo de <strong>𝐰</strong> hasta que su proyección sobre el eje
+              <strong>z</strong> sea <strong>h = 0</strong>. En ese caso, el volumen se anula:
+            </p>
+            <div class="formula">h = 0 ⇒ V = Área(base) · h = 0</div>
           </div>
-        </div>
+
       </article>
 
       <article id="s4-activities" class="panel">
@@ -1197,10 +1186,10 @@
   </main>
 
   <footer>
-    <span>VectorLab · Nueva Base V5.1</span>
+    <span>VectorLab · Nueva Base V5.2</span>
     <span>Diseño estable · Sin conversión automática de notación</span>
   </footer>
 
-  <script src="app.js?v=5.1"></script>
+  <script src="app.js?v=5.2"></script>
 </body>
 </html>

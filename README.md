@@ -69,3 +69,8 @@ Corrección puntual: se mejoró el arrastre de los vectores en las gráficas con
 ## Nueva Base V5
 
 Se agregó la Sección 4 completa: teoría de producto mixto, gráfica del volumen del paralelepípedo, gráfica de coplanaridad con altura variable, 10 actividades y 10 preguntas de autoevaluación.
+
+
+## Nueva Base V5.2
+
+Se eliminó la gráfica vieja de coplanaridad de la Sección 4 para evitar redundancia/confusión. La coplanaridad queda integrada en la gráfica interactiva principal: al llevar la proyección de 𝐰 sobre z a h = 0, el volumen se anula.
