@@ -85,3 +85,11 @@ Se agregó autoría visible en la app, metadato de autor y aviso de copyright ed
 **Año:** 2026  
 
 **Aviso:** © 2026 Agustín Menuet. Material educativo. Se permite su uso con fines académicos citando la fuente.
+
+
+## Nueva Base V5.4
+
+Se agregó la Sección 5: Geometría Analítica, con acceso al PDF final integrado de teoría, práctica y autoevaluación.
+
+Archivo incluido en la app:
+- geometria_analitica_unidad_2_final.pdf

@@ -635,3 +635,71 @@ footer {
     grid-template-columns: 1fr;
   }
 }
+
+
+/* V5.4: sección Geometría Analítica */
+.pdf-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: .7rem;
+  margin-top: .9rem;
+}
+
+.pdf-actions a {
+  display: inline-block;
+  text-decoration: none;
+  background: var(--blue);
+  color: white;
+  padding: .7rem 1rem;
+  border-radius: 14px;
+  font-weight: 800;
+}
+
+.pdf-actions a:nth-child(2) {
+  background: #eef5ff;
+  color: var(--blue);
+  border: 1px solid var(--line);
+}
+
+.ga-cards {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 1rem;
+}
+
+.ga-card {
+  background: white;
+  border: 1px solid var(--line);
+  border-radius: 18px;
+  padding: 1rem;
+  box-shadow: 0 8px 20px rgba(8, 59, 122, .06);
+}
+
+.ga-card h4 {
+  color: var(--blue);
+  margin: 0 0 .45rem;
+}
+
+.ga-card p {
+  margin: 0;
+  color: var(--muted);
+  line-height: 1.45;
+}
+
+.pdf-frame {
+  width: 100%;
+  height: 850px;
+  border: 1px solid var(--line);
+  border-radius: 18px;
+  background: white;
+}
+
+@media (max-width: 800px) {
+  .ga-cards {
+    grid-template-columns: 1fr;
+  }
+
+  .pdf-frame {
+    height: 650px;
+  }
+}
